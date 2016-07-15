@@ -9,7 +9,7 @@
 #import "EEJSelectMenu.h"
 
 static CGFloat const EEJSelectMenuTopGap = 20.0;
-static CGFloat const EEJSelectMenuTitleHeight = 44.0;
+static CGFloat const EEJSelectMenuTitleHeight = 60.0;
 
 @interface EEJSelectMenu () <EEJMenuItemDelegate>
 @property (strong,nonatomic) EEJMenuItem *item;
@@ -17,7 +17,6 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
 @property (strong,nonatomic) UIColor *menuColors;
 @property (assign,nonatomic) long numberOfButtons;
 @property (strong,nonatomic) NSArray *colorArray;
-@property (strong, nonatomic) NSString *title;
 @end
 
 @implementation EEJSelectMenu {
@@ -35,7 +34,7 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
         self.animationStyle = style;
         self.delegate = delegate;
         self.menuColors = color;
-        self.title = title;
+        self.menuTitle = title;
     }
     return self;
 }
@@ -48,7 +47,7 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
         self.buttonNames = buttons;
         self.animationStyle = style;
         self.colorArray = colors;
-        self.title = title;
+        self.menuTitle = title;
     }
     
     return self;
@@ -66,14 +65,19 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
     self.buttons = [NSMutableArray array];
     self.numberOfButtons = self.buttonNames.count;
     
-    CGFloat finalTopHeight = self.title != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap;
+    CGFloat finalTopHeight = self.menuTitle != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap;
     CGFloat heightBasedOnNumberOfButtons = ((self.view.bounds.size.height - finalTopHeight) / self.numberOfButtons) - 1.0;
     
-    if ([self.title length]) {
-        EEJMenuItem *titleItem = [[EEJMenuItem alloc] initWithFrame:CGRectMake(1, EEJSelectMenuTitleHeight, self.view.bounds.size.width - 2, EEJSelectMenuTitleHeight)];
-        titleItem.title = self.title;
-        self.item.backgroundColor = [UIColor whiteColor];
-        [self.view addSubview: titleItem];
+    if ([self.menuTitle length]) {
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(1, EEJSelectMenuTopGap, self.view.bounds.size.width - 2, EEJSelectMenuTitleHeight)];
+        titleView.backgroundColor = self.titleBackgroundColor != nil ? self.titleBackgroundColor : [UIColor whiteColor];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, titleView.frame.size.width, titleView.frame.size.height)];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.text = self.menuTitle;
+        titleLabel.textColor = self.titleTextColor != nil ? self.titleTextColor : [UIColor blackColor];
+        [titleView addSubview:titleLabel];
+        
+        [self.view addSubview: titleView];
         
     }
 

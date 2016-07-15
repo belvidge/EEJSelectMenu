@@ -1,3 +1,3 @@
 target 'EEJSelectMenuSwift' do
-	pod 'EEJSelectMenu', :git => 'https://github.com/belvidge/EEJSelectMenu', :commit => 'dfb754b2b44c500cc83589f18b5c4daef9d6d065'
+	pod 'EEJSelectMenu', :git => 'https://github.com/belvidge/EEJSelectMenu', :commit => '83fda2431921151b0adf77fa5459dd08a3b3601f'
 end

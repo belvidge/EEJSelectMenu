@@ -95,6 +95,22 @@ typedef NS_OPTIONS(NSUInteger,AnimationStyle) {
  */
 @property (nonatomic,weak) id<EEJSelectMenuDelegate> delegate;
 
+/**
+ *  The title displayed at the top of the menu.
+ *  @note Optional.
+ */
+@property (copy, nonatomic) NSString *menuTitle;
 
+/**
+ *  The background color of the title block.
+ *  @note Default color is white.
+ */
+@property (nonatomic, strong) UIColor *titleBackgroundColor;
+
+/**
+ *  The text color of the title block.
+ *  @note Default color is black.
+ */
+@property (nonatomic, strong) UIColor *titleTextColor;
 
 @end
