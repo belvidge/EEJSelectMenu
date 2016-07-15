@@ -66,7 +66,7 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
     self.buttons = [NSMutableArray array];
     self.numberOfButtons = self.buttonNames.count;
     
-    CGFloat finalTopHeight = self.title != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap
+    CGFloat finalTopHeight = self.title != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap;
     CGFloat heightBasedOnNumberOfButtons = ((self.view.bounds.size.height - finalTopHeight) / self.numberOfButtons) - 1.0;
     
     for (int i=0; i<self.numberOfButtons; i++) {

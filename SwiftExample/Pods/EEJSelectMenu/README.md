@@ -21,7 +21,7 @@ Just provide the names for the buttons and the menu will take care of the number
 ###### Animation: MoveInFromRight & Alternate 
 ![](third.gif)
 
-##### Version 1.1.0
+##### Version 1.1.1
 
 
 
@@ -47,6 +47,8 @@ Import the header file to your source code
 
 Getting Started
 ==================
+##### Note: 🔶 To use EEJSelectMenu in your Swift project checkout [these](https://github.com/eejahromi/EEJSelectMenu/blob/master/swiftInstructions.md) simple steps to get you started. 🔶
+
 * `Initializers`
   - `-initWithButtons:animationStyle:color:andDelegate:`
   - `-initWithButtons:animationStyle:colors:`
