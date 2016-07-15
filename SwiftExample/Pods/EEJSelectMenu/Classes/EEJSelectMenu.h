@@ -59,7 +59,7 @@ typedef NS_OPTIONS(NSUInteger,AnimationStyle) {
  *  @param color A color of type UIColor for button background colors
  *  @param delegate The menu delegate that receives notification of the item pressed
  */
-- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style color:(UIColor *)color andDelegate:(id<EEJSelectMenuDelegate>)delegate;
+- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style color:(UIColor *)color title:(NSString *)title andDelegate:(id<EEJSelectMenuDelegate>)delegate;
 
 /**
  *  Initializes an instance of the menu with multiple colors for the menu
@@ -67,7 +67,7 @@ typedef NS_OPTIONS(NSUInteger,AnimationStyle) {
  *  @param style The animation style to represent the menu buttons
  *  @param colors An array containing UIColor elements for menu button backgrounds in the order in which they appear
  */
-- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style andColors:(NSArray<UIColor *> *)colors;
+- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style title:(NSString *)title andColors:(NSArray<UIColor *> *)colors;
 
 /**
  *  The color of view that contains the menu items

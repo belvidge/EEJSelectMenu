@@ -69,6 +69,14 @@ static CGFloat const EEJSelectMenuTitleHeight = 44.0;
     CGFloat finalTopHeight = self.title != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap;
     CGFloat heightBasedOnNumberOfButtons = ((self.view.bounds.size.height - finalTopHeight) / self.numberOfButtons) - 1.0;
     
+    if ([self.title length]) {
+        EEJMenuItem *titleItem = [[EEJMenuItem alloc] initWithFrame:CGRectMake(1, EEJSelectMenuTitleHeight, self.view.bounds.size.width - 2, EEJSelectMenuTitleHeight)];
+        titleItem.title = self.title;
+        self.item.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview: titleItem];
+        
+    }
+
     for (int i=0; i<self.numberOfButtons; i++) {
         self.item = [[EEJMenuItem alloc]
                      initWithFrame:CGRectMake(1, finalTopHeight + (i * heightBasedOnNumberOfButtons) + i, self.view.bounds.size.width - 2, heightBasedOnNumberOfButtons)];

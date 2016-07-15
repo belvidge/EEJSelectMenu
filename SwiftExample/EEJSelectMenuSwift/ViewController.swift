@@ -23,6 +23,7 @@ class ViewController: UIViewController, EEJSelectMenuDelegate {
         let menu = EEJSelectMenu(buttons: ["ONE","TWO","THREE","FOUR","FIVE"],
                                  animationStyle: AnimationStyle.EEJAnimationStyleScale,
                                  color: UIColor.blackColor(),
+                                 title: "Test",
                                  andDelegate: self);
         menu.selectedButtonColor = UIColor.grayColor()
         presentViewController(menu, animated: false, completion: nil)
