@@ -8,12 +8,16 @@
 
 #import "EEJSelectMenu.h"
 
+static CGFloat const EEJSelectMenuTopGap = 20.0;
+static CGFloat const EEJSelectMenuTitleHeight = 44.0;
+
 @interface EEJSelectMenu () <EEJMenuItemDelegate>
 @property (strong,nonatomic) EEJMenuItem *item;
 @property (strong,nonatomic) NSMutableArray *buttons;
 @property (strong,nonatomic) UIColor *menuColors;
 @property (assign,nonatomic) long numberOfButtons;
 @property (strong,nonatomic) NSArray *colorArray;
+@property (strong, nonatomic) NSString *title;
 @end
 
 @implementation EEJSelectMenu {
@@ -23,6 +27,7 @@
 - (instancetype)initWithButtons:(NSArray *)buttons
                  animationStyle:(AnimationStyle)style
                           color:(UIColor *)color
+                          title:(NSString *)title
                     andDelegate:(id<EEJSelectMenuDelegate>)delegate {
     self = [super init];
     if (self) {
@@ -30,11 +35,12 @@
         self.animationStyle = style;
         self.delegate = delegate;
         self.menuColors = color;
+        self.title = title;
     }
     return self;
 }
 
-- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style andColors:(NSArray<UIColor *> *)colors {
+- (instancetype)initWithButtons:(NSArray *)buttons animationStyle:(AnimationStyle)style title:(NSString *)title andColors:(NSArray<UIColor *> *)colors {
     NSAssert(buttons.count == colors.count, @"number of buttons and colors must match");
     
     self = [super init];
@@ -42,6 +48,7 @@
         self.buttonNames = buttons;
         self.animationStyle = style;
         self.colorArray = colors;
+        self.title = title;
     }
     
     return self;
@@ -59,11 +66,12 @@
     self.buttons = [NSMutableArray array];
     self.numberOfButtons = self.buttonNames.count;
     
-    CGFloat heightBasedOnNumberOfButtons = ((self.view.bounds.size.height - 20) / self.numberOfButtons) - 1.0;
+    CGFloat finalTopHeight = self.title != nil ? (EEJSelectMenuTopGap + EEJSelectMenuTitleHeight) : EEJSelectMenuTopGap
+    CGFloat heightBasedOnNumberOfButtons = ((self.view.bounds.size.height - finalTopHeight) / self.numberOfButtons) - 1.0;
     
     for (int i=0; i<self.numberOfButtons; i++) {
         self.item = [[EEJMenuItem alloc]
-                     initWithFrame:CGRectMake(1, 20 + (i * heightBasedOnNumberOfButtons) + i, self.view.bounds.size.width - 2, heightBasedOnNumberOfButtons)];
+                     initWithFrame:CGRectMake(1, finalTopHeight + (i * heightBasedOnNumberOfButtons) + i, self.view.bounds.size.width - 2, heightBasedOnNumberOfButtons)];
         self.item.title = self.buttonNames[i];
 
         if(self.colorArray) {
