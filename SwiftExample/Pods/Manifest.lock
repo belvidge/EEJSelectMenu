@@ -2,21 +2,21 @@ PODS:
   - EEJSelectMenu (1.1.1)
 
 DEPENDENCIES:
-  - EEJSelectMenu (from `https://github.com/belvidge/EEJSelectMenu`, commit `fdfc212a86002acd8b41f52e282bbee07556d432`)
+  - EEJSelectMenu (from `https://github.com/belvidge/EEJSelectMenu`, commit `b4581c15a559bf475838b8247487f51448f32d23`)
 
 EXTERNAL SOURCES:
   EEJSelectMenu:
-    :commit: fdfc212a86002acd8b41f52e282bbee07556d432
+    :commit: b4581c15a559bf475838b8247487f51448f32d23
     :git: https://github.com/belvidge/EEJSelectMenu
 
 CHECKOUT OPTIONS:
   EEJSelectMenu:
-    :commit: fdfc212a86002acd8b41f52e282bbee07556d432
+    :commit: b4581c15a559bf475838b8247487f51448f32d23
     :git: https://github.com/belvidge/EEJSelectMenu
 
 SPEC CHECKSUMS:
   EEJSelectMenu: 3d001af0d1222c8612b1b3b935ebd2834aa4466c
 
-PODFILE CHECKSUM: ac817835058fd8f90a67e5d44c12324299537995
+PODFILE CHECKSUM: 234e389a2b521377c836d8977780f99f41acdcb7
 
 COCOAPODS: 1.0.0
